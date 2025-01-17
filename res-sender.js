@@ -337,7 +337,7 @@ async function createList() {
     if ($("#sendResources")[0]) {
         $("#sendResources")[0].remove();
         $("#resourceSender")[0].remove();
-        await new Promise(resolve => setTimeout(resolve, 500));
+        await new Promise(resolve => setTimeout(resolve, 300));
     }
     //UI creation of the list
     var htmlString = `
@@ -358,11 +358,11 @@ async function createList() {
                                 <input type="text" ID="coordinateTarget" name="coordinateTarget" size="20" margin="5" align=left>
                             </td>
                             <td class="sophRowA" align=left>
-                                <input type="text" ID="customWood" name="customWood" size="5">
+                                <input type="text" ID="customWood" name="customWood" size="5" value=${customWood}>
                                 <span class="icon header wood"> </span>
-                                <input type="text" ID="customClay" name="customClay" size="5">
+                                <input type="text" ID="customClay" name="customClay" size="5" value=${customClay}>
                                 <span class="icon header stone"> </span>
-                                <input type="text" ID="customIron" name="customIron" size="5">
+                                <input type="text" ID="customIron" name="customIron" size="5" value=${customIron}>
                                 <span class="icon header iron"> </span>
                             </td>
                             <td class="sophRowA" align=left>
@@ -536,7 +536,7 @@ function checkDistance(x1, y1, x2, y2) {
 function askCoordinate() {
     const currentURL = window.location.href;
     const coordinates = currentURL.match(/#(\d+;\d+)/)?.[1];
-    let prefillCoords = undefined;
+    let prefillCoords = '';
     if(coordinates?.includes(';')){
         prefillCoords = coordinates.replace(';', '|');
     }
