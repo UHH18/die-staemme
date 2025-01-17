@@ -470,7 +470,7 @@ async function createList() {
             <td width="50" style="text-align:center">${res.wood}<span class="icon header wood"> </span></td>
             <td width="50" style="text-align:center">${res.stone}<span class="icon header stone"> </span></td>
             <td width="50" style="text-align:center">${res.iron}<span class="icon header iron"> </span></td>
-            <td style="text-align:center"><input type="button" class="btn evt-confirm-btn btn-confirm-yes" id="sendResources" value="${langShinko[17]}" onclick=sendResource(${villagesData[i].id},${sendBack[0]},${customWood?? res.wood},${customClay ?? res.stone},${customIron ?? res.iron},${i})></td>
+            <td style="text-align:center"><input type="button" class="btn evt-confirm-btn btn-confirm-yes" id="sendResources" value="${langShinko[17]}" onclick=sendResource(${villagesData[i].id},${sendBack[0]},${customWood?.length > 0 ? customWood : res.wood},${customClay?.length > 0 ? customClay : res.stone},${customIron?.length > 0 ? customIron :res.iron},${i})></td>
         </tr>`
         }
     }
