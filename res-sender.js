@@ -406,9 +406,15 @@ function createList() {
     $("#contentContainer").prepend(uiDiv.firstChild);
     $("#resPercent")[0].value = resLimit;
     $("#coordinateTarget")[0].value = coordinate;
-    const customWood = $("#customWood")[0].value;
+    let customWood = '';
     const customClay = $("#customClay")[0].value;
     const customIron = $("#customIron")[0].value;
+
+    $("#customWood").on("input", function () {
+        const updatedValue = this.value;
+        console.log("Aktueller Wert:", updatedValue);
+        customWood = updatedValue;
+    });
 
     // save coordinate and reslimit functionality
     $('#button').click(function () {
