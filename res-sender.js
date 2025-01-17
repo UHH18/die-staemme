@@ -337,7 +337,7 @@ async function createList() {
     if ($("#sendResources")[0]) {
         $("#sendResources")[0].remove();
         $("#resourceSender")[0].remove();
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 500));
     }
     //UI creation of the list
     var htmlString = `
@@ -534,6 +534,10 @@ function checkDistance(x1, y1, x2, y2) {
 }
 
 function askCoordinate() {
+    const currentURL = window.location.href;
+    const coordinates = currentURL.match(/#(\d+;\d+)/)?.[1];
+    console.log(coordinates);
+
     //ask for coordinate
     var content = `<div style=max-width:1000px;>
     <h2 class="popup_box_header">
@@ -550,7 +554,7 @@ function askCoordinate() {
     </center>
     </p>
     <center> <table><tr><td><center>
-    <input type="text" ID="coordinateTargetFirstTime" name="coordinateTargetFirstTime" size="20" margin="5" align=left></center></td></tr>
+    <input type="text" ID="coordinateTargetFirstTime" name="coordinateTargetFirstTime" size="20" margin="5" align=left>${coordinates}</center></td></tr>
        <tr></tr>
        <tr><td><center><input type="button"
           class="btn evt-cancel-btn btn-confirm-yes" id="saveCoord"
