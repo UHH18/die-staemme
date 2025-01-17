@@ -359,20 +359,20 @@ function createList() {
                             <td class="sophRowA">
                                 <input type="text" ID="coordinateTarget" name="coordinateTarget" size="20" margin="5" align=left>
                             </td>
-                            <td class="sophRowA" align="right">
-                                <input type="text" ID="customWood" name="customWood" size="5" align=right>
+                            <td class="sophRowA">
+                                <input type="text" ID="customWood" name="customWood" size="5">
                                 <span class="icon header wood"> </span>
                             </td>
-                            <td class="sophRowA" align="right">
-                                <input type="text" ID="customClay" name="customClay" size="5" align=right>
+                            <td class="sophRowA">
+                                <input type="text" ID="customClay" name="customClay" size="5">
                                 <span class="icon header stone"> </span>
                             </td>
-                            <td class="sophRowA" align="right">
-                                <input type="text" ID="customIron" name="customIron" size="5" align=right>
+                            <td class="sophRowA">
+                                <input type="text" ID="customIron" name="customIron" size="5">
                                 <span class="icon header iron"> </span>
                             </td>
-                            <td class="sophRowA" align="right">
-                                <input type="text" ID="resPercent" name="resPercent" size="1" align=right>%
+                            <td class="sophRowA">
+                                <input type="text" ID="resPercent" name="resPercent" size="1">%
                             </td>
                             <td class="sophRowA" margin="5">
                                 <button type="button" ID="button" class="btn-confirm-yes" >${langShinko[2]}</button>
