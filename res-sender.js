@@ -337,11 +337,7 @@ async function createList() {
     if ($("#sendResources")[0]) {
         $("#sendResources")[0].remove();
         $("#resourceSender")[0].remove();
-        console.log("vorher")
-        await new Promise(resolve => setTimeout(resolve, 3000));
-        console.log("zwischen")
-        await new Promise(resolve => setTimeout(()=>resolve(), 3000));
-        console.log("nachher")
+        await new Promise(resolve => setTimeout(resolve, 1000));
     }
     //UI creation of the list
     var htmlString = `
