@@ -433,7 +433,7 @@ function createList() {
 
     //adding sent so far
 
-    $("#resourceSender").eq(0).prepend(`<table id="playerTarget" width="600">
+    $("#resourceSender").eq(0).prepend(`<table id="playerTarget" width="100%">
     <tbody>
         <tr>
             <td class="sophHeader" rowspan="3"><img src="`+ sendBack[2] + `"></td>
