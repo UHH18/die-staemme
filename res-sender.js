@@ -360,19 +360,19 @@ function createList() {
                                 <input type="text" ID="coordinateTarget" name="coordinateTarget" size="20" margin="5" align=left>
                             </td>
                             <td class="sophRowA">
-                                <input type="text" ID="customWood" name="customWood" size="5">
+                                <input type="text" ID="customWood" name="customWood" size="5" align=left>
                                 <span class="icon header wood"> </span>
                             </td>
                             <td class="sophRowA">
-                                <input type="text" ID="customClay" name="customClay" size="5">
+                                <input type="text" ID="customClay" name="customClay" size="5" align=left>
                                 <span class="icon header stone"> </span>
                             </td>
                             <td class="sophRowA">
-                                <input type="text" ID="customIron" name="customIron" size="5">
+                                <input type="text" ID="customIron" name="customIron" size="5" align=left>
                                 <span class="icon header iron"> </span>
                             </td>
                             <td class="sophRowA">
-                                <input type="text" ID="resPercent" name="resPercent" size="1">%
+                                <input type="text" ID="resPercent" name="resPercent" size="1" align=left>%
                             </td>
                             <td class="sophRowA" margin="5">
                                 <button type="button" ID="button" class="btn-confirm-yes" >${langShinko[2]}</button>
