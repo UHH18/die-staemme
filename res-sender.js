@@ -346,10 +346,10 @@ function createList() {
                         <thead>
                             <tr>
                                 <td class="sophHeader">${langShinko[7]}</td>
+                                <td class="sophHeader">Custom resource amount</td>
+                                <td class="sophHeader"></td>
+                                <td class="sophHeader"></td>
                                 <td class="sophHeader">${langShinko[8]}</td>
-                                <td class="sophHeader"></td>
-                                <td class="sophHeader"></td>
-                                <td class="sophHeader"></td>
                                 <td class="sophHeader"></td>
                                 <td class="sophHeader"></td>
                             </tr>
