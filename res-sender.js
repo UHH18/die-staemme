@@ -536,7 +536,10 @@ function checkDistance(x1, y1, x2, y2) {
 function askCoordinate() {
     const currentURL = window.location.href;
     const coordinates = currentURL.match(/#(\d+;\d+)/)?.[1];
-    console.log(coordinates);
+    let prefillCoords = undefined;
+    if(coordinates?.includes(';')){
+        prefillCoords = coordinates.replace(';', '|');
+    }
 
     //ask for coordinate
     var content = `<div style=max-width:1000px;>
@@ -553,14 +556,15 @@ function askCoordinate() {
        </font>
     </center>
     </p>
-    <center> <table><tr><td><center>
-    <input type="text" ID="coordinateTargetFirstTime" name="coordinateTargetFirstTime" size="20" margin="5" align=left>${coordinates}</center></td></tr>
-       <tr></tr>
-       <tr><td><center><input type="button"
-          class="btn evt-cancel-btn btn-confirm-yes" id="saveCoord"
-          value="${langShinko[2]}">&emsp;</center></td></tr>
-          <tr></tr>
-          </table>
+    <center> 
+        <table>
+            <tr><td><center><input type="text" ID="coordinateTargetFirstTime" name="coordinateTargetFirstTime" size="20" margin="5" align=left value=${prefillCoords}></center></td></tr>
+            <tr></tr>
+            <tr><td><center><input type="button"
+                class="btn evt-cancel-btn btn-confirm-yes" id="saveCoord"
+                value="${langShinko[2]}">&emsp;</center></td></tr>
+            <tr></tr>
+        </table>
     </center>
     <br>
  </div>`;
