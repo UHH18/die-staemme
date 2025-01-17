@@ -342,7 +342,7 @@ function createList() {
     //UI creation of the list
     var htmlString = `
                 <div id="resourceSender">
-                    <table id="Settings" width="600">
+                    <table id="Settings" width="100%">
                         <thead>
                             <tr>
                                 <td class="sophHeader">${langShinko[7]}</td>
