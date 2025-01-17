@@ -332,12 +332,12 @@ $.get(URLReq, function () {
 //ask user what coordinate they want to send resources to
 askCoordinate();
 
-function createList() {
+async function createList() {
     //if list is already made, delete both the older(possibly out of date list), with new one and readd the target and WH limit 
     if ($("#sendResources")[0]) {
         $("#sendResources")[0].remove();
         $("#resourceSender")[0].remove();
-
+        await new Promise(resolve => setTimeout(resolve(), 1000))
     }
     //UI creation of the list
     var htmlString = `
@@ -347,8 +347,6 @@ function createList() {
                             <tr>
                                 <td class="sophHeader">${langShinko[7]}</td>
                                 <td class="sophHeader">Custom resource amount</td>
-                                <td class="sophHeader"></td>
-                                <td class="sophHeader"></td>
                                 <td class="sophHeader">${langShinko[8]}</td>
                                 <td class="sophHeader"></td>
                                 <td class="sophHeader"></td>
@@ -360,19 +358,15 @@ function createList() {
                                 <input type="text" ID="coordinateTarget" name="coordinateTarget" size="20" margin="5" align=left>
                             </td>
                             <td class="sophRowA" align=left>
-                                <input type="text" ID="customWood" name="customWood" size="5" align=right>
+                                <input type="text" ID="customWood" name="customWood" size="5">
                                 <span class="icon header wood"> </span>
-                            </td>
-                            <td class="sophRowA" align=left>
-                                <input type="text" ID="customClay" name="customClay" size="5" align=right>
+                                <input type="text" ID="customClay" name="customClay" size="5">
                                 <span class="icon header stone"> </span>
-                            </td>
-                            <td class="sophRowA" align=left>
-                                <input type="text" ID="customIron" name="customIron" size="5" align=right>
+                                <input type="text" ID="customIron" name="customIron" size="5">
                                 <span class="icon header iron"> </span>
                             </td>
                             <td class="sophRowA" align=left>
-                                <input type="text" ID="resPercent" name="resPercent" size="1" align=right>%
+                                <input type="text" ID="resPercent" name="resPercent" size="1">%
                             </td>
                             <td class="sophRowA" margin="5">
                                 <button type="button" ID="button" class="btn-confirm-yes" >${langShinko[2]}</button>
