@@ -10,7 +10,7 @@ var farmSpaceTotal = [];
 var villagesData = [];
 var allWoodObjects, allClayObjects, allIronObjects, allVillages;
 var totalsAndAverages = "";
-var data, totalWood = 0, totalStone = 0, totalIron = 0, resLimit = 0;
+var data, totalWood = 0, totalStone = 0, totalIron = 0, resLimit = 0, customWood = '', customClay = '', customIron = '';
 var sendBack;
 var totalWoodSent = 0; totalStoneSent = 0; totalIronSent = 0;
 if (typeof woodPercentage == 'undefined') {
@@ -349,12 +349,24 @@ function createList() {
                                 <td class="sophHeader">${langShinko[8]}</td>
                                 <td class="sophHeader"></td>
                                 <td class="sophHeader"></td>
+                                <td class="sophHeader"></td>
+                                <td class="sophHeader"></td>
+                                <td class="sophHeader"></td>
                             </tr>
                         </tdead>
                         <tbody>
                         <tr >
                             <td class="sophRowA">
                                 <input type="text" ID="coordinateTarget" name="coordinateTarget" size="20" margin="5" align=left>
+                            </td>
+                            <td class="sophRowA">
+                                <input type="text" ID="customWood" name="customWood" size="5" margin="5" align=right>
+                            </td>
+                            <td class="sophRowA">
+                                <input type="text" ID="customClay" name="customClay" size="5" margin="5" align=right>
+                            </td>
+                            <td class="sophRowA">
+                                <input type="text" ID="customIron" name="customIron" size="5" margin="5" align=right>
                             </td>
                             <td class="sophRowA" align="right">
                                 <input type="text" ID="resPercent" name="resPercent" size="1" align=right>%
@@ -377,9 +389,6 @@ function createList() {
     //creating header for the actual list of sends
     htmlCode = `
             <div id="sendResources" border=0>
-                <input type="text" ID="customWood" name="customWood" size="5" margin="5" align=left>
-                <input type="text" ID="customClay" name="customClay" size="5" margin="5" align=left>
-                <input type="text" ID="customIron" name="customIron" size="5" margin="5" align=left>
                 <table id="tableSend" width="100%">
                     <tbody id="appendHere">
                         <tr>
@@ -406,25 +415,18 @@ function createList() {
     $("#contentContainer").prepend(uiDiv.firstChild);
     $("#resPercent")[0].value = resLimit;
     $("#coordinateTarget")[0].value = coordinate;
-    let customWood = '';
-    const customClay = $("#customClay")[0].value;
-    const customIron = $("#customIron")[0].value;
-
-    $("#customWood").on("input", function () {
-        const updatedValue = this.value;
-        console.log("Aktueller Wert:", updatedValue);
-        customWood = updatedValue;
-    });
 
     // save coordinate and reslimit functionality
     $('#button').click(function () {
         coordinate = $("#coordinateTarget")[0].value.match(/\d+\|\d+/)[0];
         sessionStorage.setItem("coordinate", coordinate);
+        customWood = $("#customWood")[0].value;
+        customClay = $("#customClay")[0].value;
+        customIron = $("#customIron")[0].value;
         resLimit = $("#resPercent")[0].value;
         sessionStorage.setItem("resLimit", resLimit);
     });
     listHTML = ``;
-
 
     //adding sent so far
 
@@ -468,7 +470,7 @@ function createList() {
             <td><a href="${villagesData[i].url}" style="color:#40D0E0;">${villagesData[i].name} </a></td>
             <td> <a href="" style="color:#40D0E0;">${sendBack[1]}</a> </td>
             <td>${checkDistance(sendBack[5], sendBack[6], villagesData[i].coord.substring(0, 3), villagesData[i].coord.substring(4, 7))}</td>
-            <td width="50" style="text-align:center">${customWood ?? res.wood}<span class="icon header wood"> </span></td>
+            <td width="50" style="text-align:center">${res.wood}<span class="icon header wood"> </span></td>
             <td width="50" style="text-align:center">${res.stone}<span class="icon header stone"> </span></td>
             <td width="50" style="text-align:center">${res.iron}<span class="icon header iron"> </span></td>
             <td style="text-align:center"><input type="button" class="btn evt-confirm-btn btn-confirm-yes" id="sendResources" value="${langShinko[17]}" onclick=sendResource(${villagesData[i].id},${sendBack[0]},${customWood?? res.wood},${res.stone},${res.iron},${i})></td>
