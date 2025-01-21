@@ -468,9 +468,9 @@ async function createList() {
         <tr ${tempRow} height="40">
             <td><a href="${villagesData[i].url}" style="color:#40D0E0;">${villagesData[i].name} </a></td>
             <td>${checkDistance(sendBack[5], sendBack[6], villagesData[i].coord.substring(0, 3), villagesData[i].coord.substring(4, 7))}</td>
-            <td width="75" style="text-align:center">${res.wood.toLocaleString("de-DE")} (${villagesData[i].wood.toLocaleString("de-DE")})<span class="icon header wood"> </span></td>
-            <td width="75" style="text-align:center">${res.stone.toLocaleString("de-DE")} (${villagesData[i].stone.toLocaleString("de-DE")})<span class="icon header stone"> </span></td>
-            <td width="75" style="text-align:center">${res.iron.toLocaleString("de-DE")} (${villagesData[i].iron.toLocaleString("de-DE")})<span class="icon header iron"> </span></td>
+            <td width="75" style="text-align:center">${res.wood.toLocaleString("de-DE")} (${Number(villagesData[i].wood).toLocaleString("de-DE")})<span class="icon header wood"> </span></td>
+            <td width="75" style="text-align:center">${res.stone.toLocaleString("de-DE")} (${Number(villagesData[i].stone).toLocaleString("de-DE")})<span class="icon header stone"> </span></td>
+            <td width="75" style="text-align:center">${res.iron.toLocaleString("de-DE")} (${Number(villagesData[i].iron).toLocaleString("de-DE")})<span class="icon header iron"> </span></td>
             <td width="50" style="text-align:center">${villagesData[i].availableMerchants}/${villagesData[i].totalMerchants}<span> </span></td>
             <td style="text-align:center"><input type="button" class="btn evt-confirm-btn btn-confirm-yes" id="sendResources" value="${langShinko[17]}" onclick=sendResource(${villagesData[i].id},${sendBack[0]},${customWood?.length > 0 ? customWood : res.wood},${customClay?.length > 0 ? customClay : res.stone},${customIron?.length > 0 ? customIron :res.iron},${i})></td>
         </tr>`
