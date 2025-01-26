@@ -146,5 +146,36 @@ $.get(URLReq, function () {
                 "farmSpaceTotal": farmSpaceTotal[i]
             });
         };
-        console.log(villagesData);
+        createUI(villagesData);
     });
+
+function createUI(villagesData){
+    var htmlString = `
+                <div id="resourceSender">
+                    <table id="Settings" width="100%">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tdead>
+                        <tbody>
+                        <tr >
+                            <td></td>
+                            <td class="sophRowA" align=left>
+                                <input type="text" ID="customWood" name="customWood" size="5" value=${villagesData[0].wood}>
+                                <span class="icon header wood"> </span>
+                                <input type="text" ID="customClay" name="customClay" size="5" value=${villagesData[0].stone}>
+                                <span class="icon header stone"> </span>
+                                <input type="text" ID="customIron" name="customIron" size="5" value=${villagesData[0].iron}>
+                                <span class="icon header iron"> </span>
+                            </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </br>
+                </div>`.trim();
+    //adding the target and WH limit DIV to the page
+    uiDiv = document.createElement('div');
+    uiDiv.innerHTML = htmlString;
+}
