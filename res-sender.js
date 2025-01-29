@@ -538,8 +538,8 @@ function checkDistance(x1, y1, x2, y2) {
 function askCoordinate() {
     const currentURL = window.location.href;
     const coordinates = currentURL.match(/#(\d+;\d+)/)?.[1];
-    let prefillCoords = '';
-    if(coordinates?.includes(';')){
+    let prefillCoords = document.querySelector('#content_value > table > tbody > tr > td:nth-child(1) > table:nth-child(1) > tbody > tr:nth-child(3) > td:nth-child(2)');
+    if(!prefillCoords && coordinates?.includes(';')){
         prefillCoords = coordinates.replace(';', '|');
     }
 
