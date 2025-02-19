@@ -209,7 +209,7 @@ $.get(URLReq, function () {
         //different HTML for mobile devices, so have to seperate
         if ($("#mobileHeader")[0]) {
             console.log("mobile");
-            allWoodObjects = $(page).find(".mwood");
+            allWoodObjects = $(page).find(".res.mwood,.warn_90.mwood,.warn.mwood");
             allClayObjects = $(page).find(".res.mstone,.warn_90.mstone,.warn.mstone");
             allIronObjects = $(page).find(".res.miron,.warn_90.miron,.warn.miron");
             allWarehouses = $(page).find(".mheader.ressources");
@@ -585,7 +585,7 @@ function askCoordinate() {
 
 
 function calculateResAmounts(wood, stone, iron, warehouse, merchants) {
-    var merchantCarry = merchants * 1000;
+    var merchantCarry = 10 * 1500;
     //available to use resources in village and substracting what we wanna leave behind
     leaveBehindRes = Math.floor(warehouse / 100 * resLimit);
     var localWood = wood - leaveBehindRes;
