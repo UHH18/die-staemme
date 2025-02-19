@@ -216,7 +216,7 @@ $.get(URLReq, function () {
             allVillages = $(page).find(".quickedit-vn");
             allFarms = $(page).find(".header.population");
             // allMerchants = $(page).find('a[href*="market"]');
-            allMerchants = $(".production_column:has(.trader_img) .vertical_center");
+            allMerchants = $(page).find(".production_column:has(.trader_img) .vertical_center");
             //grabbing wood amounts
             for (var i = 0; i < allWoodObjects.length; i++) {
                 n = allWoodObjects[i].textContent;
