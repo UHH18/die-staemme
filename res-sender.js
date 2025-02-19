@@ -209,7 +209,7 @@ $.get(URLReq, function () {
         //different HTML for mobile devices, so have to seperate
         if ($("#mobileHeader")[0]) {
             console.log("mobile");
-            allWoodObjects = $(page).find(".res.mwood,.warn_90.mwood,.warn.mwood");
+            allWoodObjects = $(page).find(".mwood");
             allClayObjects = $(page).find(".res.mstone,.warn_90.mstone,.warn.mstone");
             allIronObjects = $(page).find(".res.miron,.warn_90.miron,.warn.miron");
             allWarehouses = $(page).find(".mheader.ressources");
