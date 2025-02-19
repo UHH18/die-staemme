@@ -215,7 +215,8 @@ $.get(URLReq, function () {
             allWarehouses = $(page).find(".mheader.ressources");
             allVillages = $(page).find(".quickedit-vn");
             allFarms = $(page).find(".header.population");
-            allMerchants = $(page).find('a[href*="market"]');
+            // allMerchants = $(page).find('a[href*="market"]');
+            allMerchants = $(".production_column:has(.trader_img) .vertical_center").text().trim();
             //grabbing wood amounts
             for (var i = 0; i < allWoodObjects.length; i++) {
                 n = allWoodObjects[i].textContent;
@@ -585,7 +586,7 @@ function askCoordinate() {
 
 
 function calculateResAmounts(wood, stone, iron, warehouse, merchants) {
-    var merchantCarry = 10 * 1500;
+    var merchantCarry = merchants * 1500;
     //available to use resources in village and substracting what we wanna leave behind
     leaveBehindRes = Math.floor(warehouse / 100 * resLimit);
     var localWood = wood - leaveBehindRes;
